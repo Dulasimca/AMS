@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PathConstants } from '../CommonModules/PathConstants';
+import { RestAPIService } from '../restapi.service';
 
 @Component({
   selector: 'app-it-register',
@@ -8,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class ItRegisterComponent implements OnInit {
   showPwd: boolean = false;
   password:any;
-  constructor() { }
+  name:any;
+  employeeid:any;
+  email:any;
+  confirmpassword:any;
+  
+
+  
+
+  constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
   }
@@ -23,4 +33,16 @@ export class ItRegisterComponent implements OnInit {
       inputValue.type = 'password';
     }
   }
-}
+  onSignIn(){
+    const params = {
+      'sno': 0,
+      'name':this.name,
+      'employeeid': this.employeeid,
+      'email': this.email,
+      'password': this.password,
+      'confirmpassword': this.confirmpassword,
+    }
+    this.restApiService.post(PathConstants.itregister_Post, params).subscribe(res => { })
+  }
+  }
+

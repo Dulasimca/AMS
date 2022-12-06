@@ -21,6 +21,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ManageAssetComponent } from './manage-asset/manage-asset.component';
 import { AssetPurchasedEntryComponent } from './asset-purchased-entry/asset-purchased-entry.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RestAPIService } from './restapi.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,11 +48,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SidebarModule,
     PanelMenuModule,
     MenuModule,
-    
+    HttpClientModule,
   
 
   ],
-  providers: [],
+  providers: [RestAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
