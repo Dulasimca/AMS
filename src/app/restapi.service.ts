@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class RestAPIService {
    //BASEURL = 'https://api.tnadw-hms.in/api/';
   //BASEURL = 'https://adatwdapi.tessolve.com/api/';
-  BASEURL = 'https://localhost:44304/api/';  
+  BASEURL = 'https://localhost:44341/api/';  
   public HttpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',

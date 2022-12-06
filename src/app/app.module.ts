@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItRegisterComponent } from './it-register/it-register.component';
 import { ItLoginComponent } from './it-login/it-login.component';
+import { RestAPIService } from './restapi.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,11 @@ import { ItLoginComponent } from './it-login/it-login.component';
     BrowserAnimationsModule,
     SidebarModule,
     PanelMenuModule,
+    HttpClientModule,
   
 
   ],
-  providers: [],
+  providers: [RestAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
