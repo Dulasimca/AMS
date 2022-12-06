@@ -9,17 +9,29 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { FormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import {MenuModule} from 'primeng/menu';
+import {MenuItem} from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItRegisterComponent } from './it-register/it-register.component';
 import { ItLoginComponent } from './it-login/it-login.component';
+import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
+import { ManageAssetComponent } from './manage-asset/manage-asset.component';
+import { AssetPurchasedEntryComponent } from './asset-purchased-entry/asset-purchased-entry.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItRegisterComponent,
-    ItLoginComponent
+    ItLoginComponent,
+    HeaderComponent,
+    MenuComponent,
+    ManageAssetComponent,
+    AssetPurchasedEntryComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +45,8 @@ import { ItLoginComponent } from './it-login/it-login.component';
     BrowserAnimationsModule,
     SidebarModule,
     PanelMenuModule,
+    MenuModule,
+    
   
 
   ],
