@@ -14,6 +14,7 @@ export class ItRegisterComponent implements OnInit {
   employeeid:any;
   email:any;
   confirmpassword:any;
+  data: any[] = [];
   
 
   
@@ -43,6 +44,11 @@ export class ItRegisterComponent implements OnInit {
       'confirmpassword': this.confirmpassword,
     }
     this.restApiService.post(PathConstants.itregister_Post, params).subscribe(res => { })
+  }
+  onView(){
+    this.restApiService.get(PathConstants.ItRegisterMaster_Get).subscribe(res => { this.data = res.Table;
+     })
+
   }
   }
 
