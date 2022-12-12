@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asset-purchased-entry.component.css']
 })
 export class AssetPurchasedEntryComponent implements OnInit {
-
+  isShowDiv = false;  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  toggleDisplayDiv() {  
+    this.isShowDiv = !this.isShowDiv;  
+  }  
 }

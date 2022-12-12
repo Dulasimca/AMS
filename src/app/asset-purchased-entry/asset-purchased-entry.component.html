@@ -1,4 +1,30 @@
-<div class="col-12 md:col-12 lg:col-12"
-    style="padding: 4.2rem 1rem;background: linear-gradient(#E3AE5F, #FAD275);height: 100vh;">
-<p>asset-purchased-entry works!</p>
+<div class="col-12 md:col-12 lg:col-12">
+    <div class="card">
+        <p-panel header="Asset Purchased Entry">
+            <div class="col-12 md:col-12 lg:col-12">
+                <div class="grid">
+                    <div class="col-12 md:col-12 lg:col-2">
+                        <p-dropdown placeholder="Select Product" optionLabel="name"></p-dropdown>
+                  </div>
+                <div class="col-12 md:col-12 lg:col-2">
+                    <button pButton pRipple style="color:black"type="button" label="Add Specification" class="p-button-outlined p-button-warning" (click)=toggleDisplayDiv()></button>
+                </div>
+            </div>
+            </div>
+            <div [hidden]="isShowDiv">
+                <div class="col-12 md:col-12 lg:col-12">
+                    <div class="grid">
+                        <div class="col-12 md:col-12 lg:col-2">
+                            <p-dropdown   placeholder=" Select Brand" optionLabel="name"></p-dropdown>
+                      </div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center;" class="col-12 md:col-12 lg:col-12">
+                            <button pButton pRipple style="color:black" type="button" label="Submit" class="p-button-outlined p-button-rounded p-button-secondary"></button>
+                      </div>
+                </div>
+            </div>
+ </p-panel>
+    </div>
 </div>

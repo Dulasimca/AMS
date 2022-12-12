@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,12 +9,15 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[] = [];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.items = [{
       items: [{label: 'Manage Asset',routerLink: '/manage-asset' },{label: 'Asset Purchased Entry',routerLink: '/asset-purchased-entry'}] 
      }];
   }
-
+logOut()
+{
+  this.router.navigate(['/it-login'])
+}
 }

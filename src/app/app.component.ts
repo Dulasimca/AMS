@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((events) => {
       if (events instanceof NavigationEnd) {
-        if ((events.url === '/it-register') || (events.url === '/it-login') ) {
+        if ((events.url === '/it-register') || (events.url === '/it-login') || (events.url === '/') ) {
           this.hideheader = true;
         }
         else {
