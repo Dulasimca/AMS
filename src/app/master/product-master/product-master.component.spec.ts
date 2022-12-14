@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageAssetComponent } from './manage-asset.component';
+import { ProductMasterComponent } from './product-master.component';
 
-describe('ManageAssetComponent', () => {
-  let component: ManageAssetComponent;
-  let fixture: ComponentFixture<ManageAssetComponent>;
+describe('ProductMasterComponent', () => {
+  let component: ProductMasterComponent;
+  let fixture: ComponentFixture<ProductMasterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManageAssetComponent ]
+      declarations: [ ProductMasterComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ManageAssetComponent);
+    fixture = TestBed.createComponent(ProductMasterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

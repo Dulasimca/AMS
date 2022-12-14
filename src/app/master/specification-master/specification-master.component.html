@@ -1,7 +1,7 @@
 <div class="col-12 md:col-12 lg:col-12 container">
     <div class="grid to-center">
         <div class="col-12 md:col-12 lg:col-12">
-            <p-panel header="Asset Purchased Entry">
+            <p-panel header="Specification  Master">
                 <div class="col-12 md:col-12 lg:col-12 box" style="margin-top: 5px;">
                     <form #f="ngForm" >
                         <div #main class="col-12 md:col-12 lg:col-12">
@@ -10,8 +10,14 @@
                                     <div class="grid">
                                         <div class="col-12 md:col-4 lg:col-2">
                                             <span class="p-float-label">
-                                                <label for="product">Asset </label>
-                                                <p-dropdown name="product" placeholder="Select Product" [(ngModel)]="product" ></p-dropdown>
+                                                <input  name="name"type="text" pInputText [(ngModel)]="name"> 
+                                                <label for="name">Name</label>
+                                            </span>
+                                        </div>
+                                        <div class="col-12 md:col-4 lg:col-2">
+                                            <span class="p-float-label">
+                                                <input name="spec" type="text" pInputText [(ngModel)]="spec"> 
+                                                <label for="spec">Specification</label>
                                             </span>
                                         </div>
                                         <div class="p-col-12 p-md-12 p-lg-3" style="margin-top: 23px;">

@@ -13,8 +13,36 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [{
-   items: [{label: 'Update', },{label: 'Delete',}] 
-  }];
+      label: 'Masters',
+      items: [{
+          label: 'Product Master',
+          routerLink: '/product-master'
+         
+      },
+      {
+          label: 'Brand Master',
+          routerLink: '/brand-master'
+          
+      },
+      {
+        label: 'Specification Master',
+        routerLink: '/specification-master'
+       
+    }
+      ]},
+      {
+          label: 'Form',
+          items: [{
+              label: 'Asset Purchased Entry',
+              routerLink: '/asset-purchased-entry'
+              
+          },
+          {
+              label: 'Manage Asset',
+              routerLink: '/manage-asset'
+          }
+      ]}
+  ];
 }
 
 }

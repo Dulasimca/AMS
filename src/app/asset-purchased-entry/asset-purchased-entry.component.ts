@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetPurchasedEntryComponent implements OnInit {
   isShowDiv = false;  
+  cols: any[] = [];
+  data: any[] = [];
+  product:any;
+  selectedType:any;
   constructor() { }
 
   ngOnInit(): void {
-  }
-  toggleDisplayDiv() {  
-    this.isShowDiv = !this.isShowDiv;  
-  }  
+  } 
 }

@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import {MenuModule} from 'primeng/menu';
-import {MenuItem} from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,11 +17,13 @@ import { ItRegisterComponent } from './it-register/it-register.component';
 import { ItLoginComponent } from './it-login/it-login.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import { ManageAssetComponent } from './manage-asset/manage-asset.component';
 import { AssetPurchasedEntryComponent } from './asset-purchased-entry/asset-purchased-entry.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RestAPIService } from './restapi.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductMasterComponent } from './master/product-master/product-master.component';
+import { SpecificationMasterComponent } from './master/specification-master/specification-master.component';
+import { BrandMasterComponent } from './master/brand-master/brand-master.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ItLoginComponent,
     HeaderComponent,
     MenuComponent,
-    ManageAssetComponent,
     AssetPurchasedEntryComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductMasterComponent,
+    SpecificationMasterComponent,
+    BrandMasterComponent
   ],
   imports: [
     BrowserModule,
