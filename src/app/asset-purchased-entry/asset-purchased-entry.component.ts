@@ -10,9 +10,13 @@ export class AssetPurchasedEntryComponent implements OnInit {
   cols: any[] = [];
   data: any[] = [];
   product:any;
+  brand:any;
   selectedType:any;
   constructor() { }
 
   ngOnInit(): void {
   } 
+  toggleDisplayDiv() {  
+    this.isShowDiv = !this.isShowDiv;  
+  }  
 }
