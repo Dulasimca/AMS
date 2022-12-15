@@ -19,7 +19,7 @@
                                             <span class="brand">
                                                 <label for="brand"></label>
                                                 <p-dropdown name="brand" placeholder="Select Brand"
-                                                    [(ngModel)]="brand"></p-dropdown>
+                                                (onClick)="onSelect('S')" [options]="brandOptions"[(ngModel)]="brandname"></p-dropdown>
                                             </span>
                                         </div>
                                         <button pButton pRipple type="button" class="p-button-rounded"
