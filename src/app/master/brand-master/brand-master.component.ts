@@ -13,7 +13,7 @@ export class BrandMasterComponent implements OnInit {
   data: any[] = [];
   cols: any;
   branddata: any[] = [];
-  brandOptions:any;
+  brandOptions: any;
   brandid: any;
 
   constructor(private restApiService: RestAPIService) { }
@@ -29,32 +29,28 @@ export class BrandMasterComponent implements OnInit {
     ]
 
   }
-  onSignIn() {
 
+  onSignIn() {
     const params = {
       'brandid': 0,
       'brandname': this.brandname,
       'flag': (this.selectedType == 1) ? true : false
     }
     this.restApiService.post(PathConstants.brandmaster_Post, params).subscribe(res => {
-     
-
     })
-
   }
-  
-
-  onSave(){
+  onSave() {
     this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
-      if(res){
-      this.branddata = res.Table;
-  
+      if (res) {
+        this.branddata = res.Table;
+
       }
-    }) 
+    })
   }
 
-  onView(){
-    this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => { this.data = res.Table;
+  onView() {
+    this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
+      this.data = res.Table;
     })
 
   }
@@ -65,12 +61,12 @@ export class BrandMasterComponent implements OnInit {
     this.brandid = 0;
 
   }
-onEdit(rowData:any){
-  this.brandid = rowData.brandid;
-  this.brandname = rowData.brandname;
-  this.selectedType = (rowData.flag === 'Active') ? 1 : 0;
-
-}
+  onEdit(rowData: any) {
+    this.brandid = rowData.brandid;
+    this.brandname = rowData.brandname;
+    this.selectedType = (rowData.flag === 'Active') ? 1 : 0;
 
   }
+
+}
 

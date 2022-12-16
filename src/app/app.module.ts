@@ -11,6 +11,9 @@ import { SidebarModule } from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import {MenuModule} from 'primeng/menu';
 import{TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
+import { MessagesModule } from 'primeng/messages';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,7 +56,9 @@ import { BrandMasterComponent } from './master/brand-master/brand-master.compone
     PanelMenuModule,
     MenuModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    PaginatorModule,
+    MessagesModule
   
 
   ],

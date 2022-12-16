@@ -9,20 +9,18 @@ import { RestAPIService } from '../restapi.service';
 })
 export class ItRegisterComponent implements OnInit {
   showPwd: boolean = false;
-  password:any;
-  name:any;
-  employeeid:any;
-  email:any;
-  confirmpassword:any;
+  password: any;
+  name: any;
+  employeeid: any;
+  email: any;
+  confirmpassword: any;
   data: any[] = [];
-  
-
-  
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
   }
+
   onShowPwd() {
     var inputValue = (<HTMLInputElement>document.getElementById('pwd'));
     console.log('in', inputValue)
@@ -34,10 +32,11 @@ export class ItRegisterComponent implements OnInit {
       inputValue.type = 'password';
     }
   }
-  onSignIn(){
+
+  onSignIn() {
     const params = {
       'sno': 0,
-      'name':this.name,
+      'name': this.name,
       'employeeid': this.employeeid,
       'email': this.email,
       'password': this.password,
@@ -45,10 +44,12 @@ export class ItRegisterComponent implements OnInit {
     }
     this.restApiService.post(PathConstants.itregister_Post, params).subscribe(res => { })
   }
-  onView(){
-    this.restApiService.get(PathConstants.ItRegisterMaster_Get).subscribe(res => { this.data = res.Table;
-     })
+
+  onView() {
+    this.restApiService.get(PathConstants.ItRegisterMaster_Get).subscribe(res => {
+      this.data = res.Table;
+    })
 
   }
-  }
+}
 
