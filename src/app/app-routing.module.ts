@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { ItLoginComponent } from './it-login/it-login.component';
 import { ItRegisterComponent } from './it-register/it-register.component';
+import { ManageAssetEntryComponent } from './manage-asset-entry/manage-asset-entry/manage-asset-entry.component';
 import { BrandMasterComponent } from './master/brand-master/brand-master.component';
 import { ProductMasterComponent } from './master/product-master/product-master.component';
 import { SpecificationMasterComponent } from './master/specification-master/specification-master.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path:'dashboard',component:DashboardComponent},
   { path:'brand-master',component:BrandMasterComponent},
   { path:'product-master',component:ProductMasterComponent},
-  { path:'specification-master',component:SpecificationMasterComponent}
+  { path:'specification-master',component:SpecificationMasterComponent},
+  {path:'manage-asset-entry',component:ManageAssetEntryComponent}
   
 ];
 

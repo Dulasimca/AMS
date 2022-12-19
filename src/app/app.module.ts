@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductMasterComponent } from './master/product-master/product-master.component';
 import { SpecificationMasterComponent } from './master/specification-master/specification-master.component';
 import { BrandMasterComponent } from './master/brand-master/brand-master.component';
+import { ManageAssetEntryComponent } from './manage-asset-entry/manage-asset-entry/manage-asset-entry.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BrandMasterComponent } from './master/brand-master/brand-master.compone
     DashboardComponent,
     ProductMasterComponent,
     SpecificationMasterComponent,
-    BrandMasterComponent
+    BrandMasterComponent,
+    ManageAssetEntryComponent
   ],
   imports: [
     BrowserModule,

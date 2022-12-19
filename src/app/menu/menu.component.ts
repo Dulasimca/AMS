@@ -39,7 +39,7 @@ export class MenuComponent implements OnInit {
           },
           {
               label: 'Manage Asset',
-              routerLink: '/manage-asset'
+              routerLink: '/manage-asset-entry'
           }
       ]}
   ];
