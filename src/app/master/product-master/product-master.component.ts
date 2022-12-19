@@ -27,6 +27,7 @@ export class ProductMasterComponent implements OnInit {
 
   ngOnInit(): void {
     this.onView();
+    this.productid=0;
 
     this.cols = [
       { field: 'productname', header: 'Product Name', align: 'left !important' },
@@ -37,19 +38,26 @@ export class ProductMasterComponent implements OnInit {
   }
  onSubmit()
  {
+if(this.productid==0){
+    const params = {
+      'productid': this.productid,
+      'productname': this.product,
+      'flag': (this.selectedType == 1) ? true : false
+    }
+this.restApiService.post(PathConstants.productmaster_Post, params).subscribe(res => { })
+    this.onView(); }
+else{
   const params = {
-    'productid': 0,
+    'productid': this.productid,
     'productname': this.product,
     'flag': (this.selectedType == 1) ? true : false
   }
-this.restApiService.post(PathConstants.productmaster_Post, params).subscribe(res => {
-
-  
-  this.onView();
+this.restApiService.post(PathConstants.updateproductmaster_post, params).subscribe(res => {
+this.onView();
 })
-
 this.onClear();
  }
+}
 
  onView(){
   this.restApiService.get(PathConstants.productmaster_Get).subscribe(res => { this.data = res.Table;
