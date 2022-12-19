@@ -7,6 +7,7 @@ import { RestAPIService } from 'src/app/restapi.service';
   templateUrl: './brand-master.component.html',
   styleUrls: ['./brand-master.component.css']
 })
+
 export class BrandMasterComponent implements OnInit {
   brandname: any;
   selectedType: any;
@@ -14,40 +15,45 @@ export class BrandMasterComponent implements OnInit {
   cols: any;
   branddata: any[] = [];
   brandOptions: any;
-  brandid: any;
+  brandid:any;
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
     this.onView();
-    this.onSave();
+    this.brandid=0;
+    
 
     this.cols = [
-      { field: 'brandname', header: 'brandname', align: 'left !important' },
-      { field: 'createdate', header: 'createdate', align: 'left !important' },
-      { field: 'flag', header: 'flag', align: 'right !important' },
+      { field: 'brandname', header: 'Brandname', align: 'left !important' },
+      { field: 'createdate', header: 'Createddate', align: 'left !important' },
+      { field: 'flag', header: 'Flag', align: 'right !important' },
     ]
 
   }
 
   onSignIn() {
+    if(this.brandid==0){
     const params = {
-      'brandid': 0,
+      'brandid': this.brandid,
       'brandname': this.brandname,
       'flag': (this.selectedType == 1) ? true : false
     }
-    this.restApiService.post(PathConstants.brandmaster_Post, params).subscribe(res => {
-    })
+    this.restApiService.post(PathConstants.brandmaster_Post, params).subscribe(res => { })
+    this.onView();
+    
   }
-  onSave() {
-    this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
-      if (res) {
-        this.branddata = res.Table;
+   else{
+    const params = {
+      'brandid': this.brandid,
+      'brandname': this.brandname,
+      'flag': (this.selectedType === '1') ? true : false,
+    }
+    this.restApiService.post(PathConstants.updatebrandmaster_Post, params).subscribe(res => { })
 
-      }
-    })
   }
-
+  
+}
   onView() {
     this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
       this.data = res.Table;
@@ -59,13 +65,12 @@ export class BrandMasterComponent implements OnInit {
     this.brandname = null;
     this.selectedType = null;
     this.brandid = 0;
-
   }
+
   onEdit(rowData: any) {
     this.brandid = rowData.brandid;
     this.brandname = rowData.brandname;
-    this.selectedType = (rowData.flag === 'Active') ? 1 : 0;
-
+    this.selectedType = (rowData.flag === 'true') ? 1 : 0;
   }
 
 }
