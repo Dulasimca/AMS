@@ -5,5 +5,7 @@ export class PathConstants {
     public static readonly brandmaster_Post ='brandmaster/Post';
     public static readonly brandmaster_Get='brandmaster';
     public static readonly updatebrandmaster_Post='updatebrandmaster/Post';
+    public static readonly productmaster_Get='productmaster';
+  
 
 }

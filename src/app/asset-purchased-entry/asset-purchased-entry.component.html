@@ -9,9 +9,11 @@
                                 <div #row1 class="col-12 md:col-12 lg:col-12">
                                     <div class="grid">
                                         <div class="col-12 md:col-4 lg:col-2">
+                 
                                             <span class="product">
                                                 <label for="product"></label>
                                                 <p-dropdown name="product" placeholder="Select Product"
+                                                    (onClick)="onSelect('p')" [options]="productOptions"
                                                     [(ngModel)]="product"></p-dropdown>
                                             </span>
                                         </div>
@@ -19,7 +21,8 @@
                                             <span class="brand">
                                                 <label for="brand"></label>
                                                 <p-dropdown name="brand" placeholder="Select Brand"
-                                                (onClick)="onSelect('S')" [options]="brandOptions"[(ngModel)]="brandname"></p-dropdown>
+                                                    (onClick)="onSelect('S')" [options]="brandOptions"
+                                                    [(ngModel)]="brandname"></p-dropdown>
                                             </span>
                                         </div>
                                         <button pButton pRipple type="button" class="p-button-rounded"
@@ -27,16 +30,30 @@
                                             Specification</button>
                                     </div>
                                 </div>
-                                    <div #row2 class="col-12 md:col-11 lg:col-11 txt-to-center no-padding" [hidden]="isShowDiv">
-                                        <div>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt earum fuga voluptatibus optio dolores excepturi temporibus dicta harum quas hic saepe rem eos ab odio modi veritatis officiis perspiciatis esse accusamus expedita, dolor ea. Architecto eaque quaerat minima eos earum vitae. Mollitia vitae veniam est non quaerat, maiores eligendi! Ducimus ex cupiditate est animi delectus assumenda, eligendi nesciunt culpa, error corrupti nostrum, at omnis voluptate voluptatem! Quae et repudiandae eaque nulla! Voluptas quae sint accusamus aperiam, facere, quo labore dignissimos amet voluptatum atque minus et autem consequuntur quos. Iure iste soluta ab doloribus. Cum animi in esse, quaerat optio fugiat quos quasi laudantium, voluptatibus harum quibusdam quia sequi? Maxime error rem tenetur quaerat voluptates ut tempora tempore delectus illum, porro explicabo odio obcaecati, ducimus ipsa fugiat quos, cupiditate sint dolor alias fugit ullam voluptatum magnam harum? Recusandae omnis ut aliquid impedit soluta inventore magnam fugiat, dolore reiciendis voluptatem qui blanditiis nulla repudiandae maiores delectus vero a totam quam unde modi sapiente! Doloremque delectus dolore quam distinctio ab aliquam quaerat amet veritatis culpa consequatur velit, dolor necessitatibus, est perspiciatis error! Quia reiciendis asperiores blanditiis dolorem deserunt ad vel corporis sit aut perspiciatis placeat eaque magnam, consequatur iure, at fugit voluptatem. Animi alias odit modi ipsum quia iste voluptates nulla maxime quod est sapiente veniam incidunt error vel sed iusto vitae, unde nemo et qui voluptatem nobis cupiditate officiis. Veritatis saepe magni modi assumenda quidem animi dolores similique nihil optio fuga, omnis a facilis vero officia. Veniam nulla molestiae ratione odit in, doloribus libero possimus consequuntur, suscipit molestias reiciendis, hic voluptates iste maiores esse tenetur nostrum harum repellat. Deleniti similique maxime expedita neque nemo. Ullam atque possimus veniam officia modi magnam quam voluptates neque eos nihil, quisquam sed repudiandae harum? Ipsam, qui expedita rerum praesentium saepe id esse quas sequi est illo labore reiciendis sunt nostrum dolores aliquam doloremque, enim error quo cupiditate quia ullam eveniet hic corporis voluptatum? Voluptates quis, quos repudiandae quaerat saepe maxime nihil soluta optio quod aperiam ex odit eos molestias consectetur, natus nostrum facilis! Libero sapiente animi sunt modi reprehenderit explicabo porro, neque rerum iure blanditiis. Quaerat beatae numquam, voluptatum facilis quibusdam, sed iure, assumenda exercitationem delectus impedit dolorem. Vero dolor, tenetur minima praesentium beatae corrupti suscipit, in accusantium laudantium veniam odio ad pariatur architecto at quos expedita ex asperiores odit. Itaque obcaecati velit, quis rem tempora optio aperiam reiciendis laboriosam sunt magni dolor sit illo, non at suscipit quam. Sequi quam est consectetur laborum ex earum voluptatum asperiores dolore. Debitis iusto nesciunt ipsa ullam ad iste quaerat culpa, expedita, velit fuga deserunt cupiditate ratione rerum fugit! Labore atque ratione, eius doloribus eveniet sunt nam porro aperiam, repellat nostrum corporis voluptatem eaque recusandae unde. Dicta ipsam, fuga ut hic nostrum ipsum odit, ad commodi nisi laborum aliquam error minus. Mollitia numquam nostrum eligendi esse ipsam rem soluta repudiandae? Numquam, possimus accusantium vitae accusamus repellat nostrum repudiandae aut eos, autem natus repellendus veniam dolorem alias saepe ullam in quo facere exercitationem voluptatibus consequatur corrupti? Iste optio ullam repellendus?
+                                <div #row2 class="col-12 md:col-11 lg:col-11 txt-to-center no-padding"
+                                    [hidden]="isShowDiv">
+                                    <h4>(For Example)Specification Name: Ram,Specification : 8GB</h4>
+                                    <div class="col-12 md:col-12 lg:col-12">
+                                        <div class="grid">
+                                            <div class="col-12 md:col-4 lg:col-2">
+                                                <span class="p-float-label">
+                                                    <input id="float-input" type="text" pInputText>
+                                                    <label for="float-input">Specification Name</label>
+                                                </span>
+                                            </div>
+                                            <div class="col-12 md:col-4 lg:col-2">
+                                                <span class="p-float-label">
+                                                    <input id="float-input" type="text" pInputText>
+                                                    <label for="float-input">Specification Type</label>
+                                                </span>
+                                            </div>
+                                            <button pButton pRipple type="button"
+                                                style="height: 25px;width: 50px;margin-top: 15px;">Add</button>
                                         </div>
-                                        <button pButton name="save" type="button" label="Submit"
-                                            icon="pi pi-save"></button>&nbsp;
-                                        <button pButton type="button" label="View" icon="pi pi-eye"></button>&nbsp;
-                                        <button pButton type="button" label="Clear" icon="pi pi-trash"></button>
                                     </div>
-                                
+                                    <button pButton name="save" type="button" label="Submit"
+                                        icon="pi pi-save"></button>&nbsp;
+                                </div>
                             </div>
                         </div>
                     </form>

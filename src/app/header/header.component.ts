@@ -13,11 +13,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [{
-      items: [{label: 'Manage Asset',routerLink: '/manage-asset' },{label: 'Asset Purchased Entry',routerLink: '/asset-purchased-entry'}] 
-     }];
+      items: [{ label: 'Manage Asset', routerLink: '/manage-asset' }, { label: 'Asset Purchased Entry', routerLink: '/asset-purchased-entry' }]
+    }];
   }
-logOut()
-{
-  this.router.navigate(['/it-login'])
-}
+  logOut() {
+    this.router.navigate(['/it-login'])
+  }
 }

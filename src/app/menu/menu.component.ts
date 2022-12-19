@@ -24,11 +24,11 @@ export class MenuComponent implements OnInit {
           routerLink: '/brand-master'
           
       },
-      {
-        label: 'Specification Master',
-        routerLink: '/specification-master'
+    //   {
+    //     label: 'Specification Master',
+    //     routerLink: '/specification-master'
        
-    }
+    // }
       ]},
       {
           label: 'Form',

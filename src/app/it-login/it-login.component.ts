@@ -13,8 +13,7 @@ export class ItLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-onSubmit()
-{
-  this.router.navigate(['/dashboard'])
-}
+  onSubmit() {
+    this.router.navigate(['/dashboard'])
+  }
 }
