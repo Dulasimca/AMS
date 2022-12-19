@@ -18,6 +18,8 @@ export class ManageAssetEntryComponent implements OnInit {
   productdata: any[] = [];
   brandOptions: any;
   productOptions: any;
+  data: any[] = [];
+  cols: any;
 
   constructor(private restApiService: RestAPIService) { }
 
@@ -64,5 +66,8 @@ onView() {
 
     }
   })
+}
+onEdit(rowData:any){
+
 }
 }
