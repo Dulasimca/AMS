@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from 'primeng/api';
 import { PathConstants } from 'src/app/CommonModules/PathConstants';
+import { ResponseMessage } from 'src/app/constants/message-constants';
 import { RestAPIService } from 'src/app/restapi.service';
+
 
 @Component({
   selector: 'app-brand-master',
@@ -16,6 +19,7 @@ export class BrandMasterComponent implements OnInit {
   branddata: any[] = [];
   brandOptions: any;
   brandid:any;
+  responseMsg: Message[] = [];
 
   constructor(private restApiService: RestAPIService) { }
 
@@ -73,5 +77,15 @@ export class BrandMasterComponent implements OnInit {
     this.selectedType = (rowData.flag === 'true') ? 1 : 0;
   }
 
-}
+  onCheck() {
+    this.data.forEach( i => {
+      if(i.brandname  === this.brandname ) {
+        this.responseMsg = [{ severity: ResponseMessage.WarnSeverity, detail: 'Brand name is already exist, Please input different name' }];
+        setTimeout(() => this.responseMsg = [], 2000)
+          this.brandname = null;
+      }
+    })
 
+  }
+
+}
