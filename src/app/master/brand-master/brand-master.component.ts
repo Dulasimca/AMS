@@ -31,7 +31,7 @@ export class BrandMasterComponent implements OnInit {
     this.cols = [
       { field: 'brandname', header: 'Brandname', align: 'left !important' },
       { field: 'createdate', header: 'Createddate', align: 'left !important' },
-      { field: 'flag', header: 'Flag', align: 'right !important' },
+      { field: 'flag', header: 'Flag', align: 'left !important' },
     ]
 
   }
