@@ -9,7 +9,6 @@
                                 <div #row1 class="col-12 md:col-12 lg:col-12">
                                     <div class="grid">
                                         <div class="col-12 md:col-4 lg:col-2">
-                 
                                             <span class="product">
                                                 <label for="product"></label>
                                                 <p-dropdown name="product" placeholder="Select Product"
@@ -30,30 +29,6 @@
                                             Specification</button>
                                     </div>
                                 </div>
-                                <div #row2 class="col-12 md:col-11 lg:col-11 txt-to-center no-padding"
-                                    [hidden]="isShowDiv">
-                                    <h4>(For Example)Specification Name: Ram,Specification : 8GB</h4>
-                                    <div class="col-12 md:col-12 lg:col-12">
-                                        <div class="grid">
-                                            <div class="col-12 md:col-4 lg:col-2">
-                                                <span class="p-float-label">
-                                                    <input id="float-input" type="text" pInputText>
-                                                    <label for="float-input">Specification Name</label>
-                                                </span>
-                                            </div>
-                                            <div class="col-12 md:col-4 lg:col-2">
-                                                <span class="p-float-label">
-                                                    <input id="float-input" type="text" pInputText>
-                                                    <label for="float-input">Specification Type</label>
-                                                </span>
-                                            </div>
-                                            <button pButton pRipple type="button"
-                                                style="height: 25px;width: 50px;margin-top: 15px;">Add</button>
-                                        </div>
-                                    </div>
-                                    <button pButton name="save" type="button" label="Submit"
-                                        icon="pi pi-save"></button>&nbsp;
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -62,3 +37,87 @@
         </div>
     </div>
 </div>
+<!--div toggle-->
+<div class="col-12 md:col-12 lg:col-12 container">
+    <div class="grid to-center">
+        <div class="col-12 md:col-12 lg:col-12" [hidden]="isShowDiv">
+            <p-panel>
+                <div class="col-12 md:col-12 lg:col-12 box" style="margin-top: 5px;">
+                    <div #row2 class="col-12 md:col-11 lg:col-11 txt-to-center no-padding">
+                        <h4>(For Example)Specification Name: Ram,Specification : 8GB</h4>
+                        <div class="col-12 md:col-12 lg:col-12">
+                            <div class="grid">
+                                <div class="col-12 md:col-4 lg:col-2">
+                                    <span class="p-float-label">
+                                        <input id="float-input" type="text" [(ngModel)]="specname" pInputText>
+                                        <label for="float-input">Specification Name</label>
+                                    </span>
+                                </div>
+                                <div class="col-12 md:col-4 lg:col-2">
+                                    <span class="p-float-label">
+                                        <input id="float-input" type="text" [(ngModel)]="spectype" pInputText>
+                                        <label for="float-input">Specification Type</label>
+                                    </span>
+                                </div>
+                                <button pButton pRipple type="button"
+                                    style="height: 25px;width: 50px;margin-top: 15px;" (click)="onAdd()">Add</button>
+                            </div>
+                             <!-- viewtable  -->
+                             <p-table [columns]="cols" [value]="data" [paginator]="true" [rows]="10"
+                             [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
+                             styleClass="p-datatable-gridlines">
+                             <ng-template pTemplate="header" let-columns>
+                                 <tr>
+                                     <th>S.No</th>
+                                     <th *ngFor="let col of columns">
+                                         {{col.header}}
+                                     </th>
+                                     <th>
+                                         Edit
+
+
+                                     </th>
+                                 </tr>
+                             </ng-template>
+                             <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex"
+                                 let-columns="columns">
+                                 <tr>
+                                     <td class="td-border">
+                                         <span class="p-column-title">
+                                             S.No :
+                                         </span>
+                                         <span style="text-align: end;">
+                                             {{rowIndex+1}}
+                                         </span>
+                                     </td>
+
+
+                                     <td *ngFor="let col of columns" [style.text-align]="col.align"
+                                         class="td-border">
+                                         <span class="p-column-title">
+                                             {{col.header}} :
+                                         </span>
+                                         <span style="text-align: end;"> {{rowData[col.field]}}
+                                         </span>
+
+                                     </td>
+                                     <td class="td-border">
+                                         <span class="p-column-title">
+                                             Edit :
+                                         </span>
+                                         <span><button icon="pi pi-pencil" pButton type="button"
+                                                 (click)="onEditAdd(rowData)">
+                                             </button></span>
+                                     </td>
+                                 </tr>
+                             </ng-template>
+                         </p-table>
+                        </div>
+                        <button pButton name="save" type="button" label="Submit" icon="pi pi-save"></button>&nbsp;
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+    </div>
+</div>
+<!--div toggle end-->

@@ -276,14 +276,14 @@ label {
 }
 
 .p-button:disabled {
-    background: #bdbdbd !important;
+    background: #81ddc3 !important;
     color: #606060 !important;
 }
 
 .p-button {
     padding: 0.52rem 0.65rem !important;
     font-weight: 400 !important;
-    background: #C2C0A6 !important;
+    background: #53736a !important;
     font-size: 14px !important;
 }
 
@@ -298,7 +298,7 @@ label {
 }
 
 .p-radiobutton .p-radiobutton-box.p-highlight {
-    border-color: #C2C0A6 !important;
+    border-color: #53736a!important;
 }
 
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
