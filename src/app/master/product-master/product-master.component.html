@@ -5,8 +5,7 @@
               <p-messages [(value)]="responseMsg" [enableService]="false"
                 [hideTransitionOptions]="'500ms cubic-bezier(0.86, 0, 0.076, 1)'"></p-messages>
                 <div class="col-12 md:col-12 lg:col-12 box" style="margin-top: 5px;">
-                   
-                        <div #main class="col-12 md:col-12 lg:col-12">
+                      <div #main class="col-12 md:col-12 lg:col-12">
                             <div class="grid to-center">
                                 <div #row1 class="col-12 md:col-11 lg:col-11">
                                     <div class="grid">
@@ -27,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div #row2 class="col-12 md:col-11 lg:col-11 txt-to-center no-padding">
-                                    <button pButton name="save" type="button" label="Submit" icon="pi pi-save" (click)="onSubmit()" ></button>&nbsp;
+                                    <button pButton type="button" label="Submit" icon="pi pi-save" (click)="onSubmit()" ></button>&nbsp;
                                     <button pButton type="button" label="Clear" icon="pi pi-trash"(click)="onClear()"></button>
                                 </div>
                             </div>
@@ -52,11 +51,11 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
       <tr>
-        <td class="td-border">
+        <td class="td-border" style="text-align: right;">
           <span class="p-column-title">
             S.No :
           </span>
-          <span style="text-align: end;">
+          <span >
             {{rowIndex+1}}
           </span>
         </td>
@@ -67,11 +66,11 @@
           <span style="text-align: end;"> {{rowData[col.field]}}
           </span>
         </td>
-        <td class="td-border">
+        <td class="td-border" style="text-align: center;">
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
+          <span><button  icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
               Edit
             </button></span>
         </td>

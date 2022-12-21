@@ -13,15 +13,15 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [{
-      label: 'Masters',
+      label: 'Forms',
       items: [{
-          label: 'Product Master',
-          routerLink: '/product-master'
+          label: 'Asset Purchased Entry',
+          routerLink: '/asset-purchased-entry'
          
       },
       {
-          label: 'Brand Master',
-          routerLink: '/brand-master'
+          label: 'Manage Asset',
+          routerLink: '/manage-asset-entry'
           
       },
     //   {
@@ -31,15 +31,15 @@ export class MenuComponent implements OnInit {
     // }
       ]},
       {
-          label: 'Form',
+          label: 'Masters',
           items: [{
-              label: 'Asset Purchased Entry',
-              routerLink: '/asset-purchased-entry'
+              label: 'Product Master',
+              routerLink: '/product-master'
               
           },
           {
-              label: 'Manage Asset',
-              routerLink: '/manage-asset-entry'
+              label: 'Brand Master',
+              routerLink: '/brand-master'
           }
       ]}
   ];

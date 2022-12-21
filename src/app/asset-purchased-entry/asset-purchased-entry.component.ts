@@ -15,12 +15,21 @@ export class AssetPurchasedEntryComponent implements OnInit {
   productdata: any[] = [];
   brandOptions: any;
   productOptions: any;
+  cols: any;
+  data: any[] = [];
+  specname:any;
+  spectype:any;
+  
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
     this.onView();
-}
+    this.cols = [
+      { field: 'specname', header: 'SpecificationName', align: 'left !important' },
+      { field: 'spectype', header: 'SpecificationType', align: 'left !important' },
+    ]
+  }
   toggleDisplayDiv() {
     this.isShowDiv = !this.isShowDiv;
   }
@@ -45,7 +54,6 @@ export class AssetPurchasedEntryComponent implements OnInit {
         console.log()
         this.productOptions.unshift({ label: 'Select Product', value: null });
         break;
-
     }
   }
   onView() {
@@ -58,8 +66,27 @@ export class AssetPurchasedEntryComponent implements OnInit {
     this.restApiService.get(PathConstants.productmaster_Get).subscribe(res => {
       if (res) {
         this.productdata = res.Table;
-
       }
     })
   }
+
+  onEditAdd(selectedRow :any){
+
+    if(
+  
+      selectedRow !== null && selectedRow !== undefined)
+      this.specname=selectedRow.specname;
+      this.spectype=selectedRow.spectype;
+ }
+ onAdd(){
+    this.data.push({
+      'specname':this.specname,
+      'spectype': this.spectype,
+    })
+    this.clearAdd();
+ }
+ clearAdd() {
+  this.specname = null;
+  this.spectype = null;
+}
 }
