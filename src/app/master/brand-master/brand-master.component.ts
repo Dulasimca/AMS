@@ -14,53 +14,53 @@ import { RestAPIService } from 'src/app/restapi.service';
 export class BrandMasterComponent implements OnInit {
   brandname: any;
   selectedType: any;
-  data: any[] = [];
+  anand: any[] = [];
   cols: any;
   branddata: any[] = [];
   brandOptions: any;
-  brandid:any;
+  brandid: any;
   responseMsg: Message[] = [];
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
     this.onView();
-    this.brandid=0;
-    
+    this.brandid = 0;
+
 
     this.cols = [
       { field: 'brandname', header: 'Brandname', align: 'left !important' },
       { field: 'createdate', header: 'Createddate', align: 'left !important' },
-      { field: 'flag', header: 'Flag', align: 'right !important' },
+      { field: 'flag', header: 'Flag', align: 'left !important' },
     ]
 
   }
 
   onSignIn() {
-    if(this.brandid==0){
-    const params = {
-      'brandid': this.brandid,
-      'brandname': this.brandname,
-      'flag': (this.selectedType == 1) ? true : false
+    if (this.brandid == 0) {
+      const params = {
+        'brandid': this.brandid,
+        'brandname': this.brandname,
+        'flag': (this.selectedType == 1) ? true : false
+      }
+      this.restApiService.post(PathConstants.brandmaster_Post, params).subscribe(res => { })
+      this.onView();
+
     }
-    this.restApiService.post(PathConstants.brandmaster_Post, params).subscribe(res => { })
-    this.onView();
-    
-  }
-   else{
-    const params = {
-      'brandid': this.brandid,
-      'brandname': this.brandname,
-      'flag': (this.selectedType === '1') ? true : false,
+    else {
+      const params = {
+        'brandid': this.brandid,
+        'brandname': this.brandname,
+        'flag': (this.selectedType === '1') ? true : false,
+      }
+      this.restApiService.post(PathConstants.updatebrandmaster_Post, params).subscribe(res => { })
+
     }
-    this.restApiService.post(PathConstants.updatebrandmaster_Post, params).subscribe(res => { })
 
   }
-  
-}
   onView() {
     this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
-      this.data = res.Table;
+      this.anand = res.Table;
     })
 
   }
@@ -78,11 +78,11 @@ export class BrandMasterComponent implements OnInit {
   }
 
   onCheck() {
-    this.data.forEach( i => {
-      if(i.brandname  === this.brandname ) {
+    this.anand.forEach(i => {
+      if (i.brandname === this.brandname) {
         this.responseMsg = [{ severity: ResponseMessage.WarnSeverity, detail: 'Brand name is already exist, Please input different name' }];
         setTimeout(() => this.responseMsg = [], 2000)
-          this.brandname = null;
+        this.brandname = null;
       }
     })
 
