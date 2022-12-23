@@ -8,9 +8,9 @@ import { RestAPIService } from 'src/app/restapi.service';
   styleUrls: ['./manage-asset-entry.component.css']
 })
 export class ManageAssetEntryComponent implements OnInit {
-  currentUser:any
-  lastUser:any;
-  assetId:any;
+  currentUser: any
+  lastUser: any;
+  assetId: any;
   product: any;
   brandname: any;
   selectedType: any;
@@ -20,11 +20,23 @@ export class ManageAssetEntryComponent implements OnInit {
   productOptions: any;
   data: any[] = [];
   cols: any;
+  brand: any;
+  managedata:any;
+ 
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
+    
     this.onView();
+    this.getData();
+this.cols = [
+      { field: 'vproductname', header: 'Product', align: 'left !important' },
+      { field: 'vbrandname', header: 'Brand', align: 'left !important' },
+      { field: 'vcurrentuser', header: 'CurrentUser', align: 'left !important' },
+      { field: 'vlastuser', header: 'LastUser', align: 'left !important' },
+    ]
+
   }
 
   onSelect(type: any) {
@@ -47,27 +59,42 @@ export class ManageAssetEntryComponent implements OnInit {
         console.log()
         this.productOptions.unshift({ label: 'Select Product', value: null });
         break;
-
-    }
+ }
   }
-onSubmit(){
-
+ 
+  onSubmit() {
+ const params = {
+      'assetid': 0,
+      'productid':this.product,
+      'brandid':this.brandname,
+      'currentuser':this.currentUser,
+      'lastuser':this.lastUser,
 }
+    this.restApiService.post(PathConstants.manageasset_Post, params).subscribe(res => { })
+ }
+
 onView() {
-  this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
-    if (res) {
-      this.branddata = res.Table;
-
+    this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
+      if (res) {
+        this.branddata = res.Table;
+      }
+    })
+    this.restApiService.get(PathConstants.productmaster_Get).subscribe(res => {
+      if (res) {
+        this.productdata = res.Table;
+  }
+    })
     }
-  })
-  this.restApiService.get(PathConstants.productmaster_Get).subscribe(res => {
-    if (res) {
-      this.productdata = res.Table;
 
-    }
+  getData()
+  {
+    this.restApiService.get(PathConstants.manageasset_Get).subscribe(res => {
+ this.data = res.Table;  
   })
-}
-onEdit(rowData:any){
+  }
 
-}
+  onEdit(rowData:any){
+
+  }
+
 }
