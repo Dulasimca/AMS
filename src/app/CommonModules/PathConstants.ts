@@ -9,5 +9,6 @@ export class PathConstants {
     public static readonly updateproductmaster_post ='updateproductmaster/post';
     public static readonly manageasset_Post  ='manageasset/Post'; 
     public static readonly manageasset_Get='manageasset';
+    public static readonly updatemanageasset_Post ='updatemanageasset/post';
    
 }
