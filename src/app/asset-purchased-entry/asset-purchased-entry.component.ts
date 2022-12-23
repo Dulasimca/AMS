@@ -8,8 +8,8 @@ import { RestAPIService } from 'src/app/restapi.service';
 })
 export class AssetPurchasedEntryComponent implements OnInit {
   isShowDiv = false;
-  product: any;
-  brandname: any;
+  productid: any;
+  brandid: any;
   selectedType: any;
   branddata: any[] = [];
   productdata: any[] = [];
@@ -89,4 +89,18 @@ export class AssetPurchasedEntryComponent implements OnInit {
   this.specname = null;
   this.spectype = null;
 }
+
+onSubmit()
+{
+  const params = {
+    'id': 0,
+    'productid':this.productid,
+    'brandid': this.brandid,
+    'name':this.specname,
+    'specification':this.spectype,
+    'flag':true
+  }
+  this.restApiService.post(PathConstants.specificationmaster_Post, params).subscribe(res => { })
+}
+
 }

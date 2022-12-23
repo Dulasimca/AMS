@@ -45,6 +45,8 @@ export class ProductMasterComponent implements OnInit {
       }
       this.restApiService.post(PathConstants.productmaster_Post, params).subscribe(res => { })
       this.onView();
+      this.responseMsg = [{ severity: ResponseMessage.SuccessSeverity, detail: 'Saved Successfully' }];
+    setTimeout(() => this.responseMsg = [], 2000)
     }
     else {
       const params = {
@@ -54,6 +56,8 @@ export class ProductMasterComponent implements OnInit {
       }
       this.restApiService.post(PathConstants.updateproductmaster_post, params).subscribe(res => {
         this.onView();
+        this.responseMsg = [{ severity: ResponseMessage.SuccessSeverity, detail: 'Edited & Saved Successfully' }];
+    setTimeout(() => this.responseMsg = [], 2000)
       })
       this.onClear();
     }

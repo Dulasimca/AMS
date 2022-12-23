@@ -13,7 +13,7 @@
                                                 <label for="product"></label>
                                                 <p-dropdown name="product" placeholder="Select Product"
                                                     (onClick)="onSelect('p')" [options]="productOptions"
-                                                    [(ngModel)]="product"></p-dropdown>
+                                                    [(ngModel)]="productid"></p-dropdown>
                                             </span>
                                         </div>
                                         <div class="col-12 md:col-4 lg:col-2">
@@ -21,7 +21,7 @@
                                                 <label for="brand"></label>
                                                 <p-dropdown name="brand" placeholder="Select Brand"
                                                     (onClick)="onSelect('S')" [options]="brandOptions"
-                                                    [(ngModel)]="brandname"></p-dropdown>
+                                                    [(ngModel)]="brandid"></p-dropdown>
                                             </span>
                                         </div>
                                         <button pButton pRipple type="button" class="p-button-rounded"
@@ -74,8 +74,6 @@
                                      </th>
                                      <th>
                                          Edit
-
-
                                      </th>
                                  </tr>
                              </ng-template>
@@ -90,17 +88,14 @@
                                              {{rowIndex+1}}
                                          </span>
                                      </td>
-
-
-                                     <td *ngFor="let col of columns" [style.text-align]="col.align"
+                                       <td *ngFor="let col of columns" [style.text-align]="col.align"
                                          class="td-border">
                                          <span class="p-column-title">
                                              {{col.header}} :
                                          </span>
                                          <span style="text-align: end;"> {{rowData[col.field]}}
                                          </span>
-
-                                     </td>
+</td>
                                      <td class="td-border">
                                          <span class="p-column-title">
                                              Edit :
@@ -113,7 +108,7 @@
                              </ng-template>
                          </p-table>
                         </div>
-                        <button pButton name="save" type="button" label="Submit" icon="pi pi-save"></button>&nbsp;
+                        <button pButton name="save" type="button" label="Submit" icon="pi pi-save" (click)="onSubmit()"></button>&nbsp;
                     </div>
                 </div>
             </p-panel>
