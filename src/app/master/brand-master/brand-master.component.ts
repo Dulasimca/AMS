@@ -45,6 +45,8 @@ export class BrandMasterComponent implements OnInit {
     }
     this.restApiService.post(PathConstants.brandmaster_Post, params).subscribe(res => { })
     this.onView();
+    this.responseMsg = [{ severity: ResponseMessage.SuccessSeverity, detail: 'Saved Successfully' }];
+    setTimeout(() => this.responseMsg = [], 2000)
     
   }
    else{
@@ -54,7 +56,8 @@ export class BrandMasterComponent implements OnInit {
       'flag': (this.selectedType === '1') ? true : false,
     }
     this.restApiService.post(PathConstants.updatebrandmaster_Post, params).subscribe(res => { })
-
+    this.responseMsg = [{ severity: ResponseMessage.SuccessSeverity, detail: 'Edited & Saved Successfully' }];
+    setTimeout(() => this.responseMsg = [], 2000)
   }
   
 }
@@ -85,7 +88,6 @@ export class BrandMasterComponent implements OnInit {
           this.brandname = null;
       }
     })
-
-  }
+ }
 
 }

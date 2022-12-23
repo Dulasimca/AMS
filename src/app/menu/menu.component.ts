@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -9,10 +10,12 @@ import { MenuItem } from 'primeng/api';
 
 export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.items = [{
+
+      
       label: 'Forms',
       items: [{
           label: 'Asset Purchased Entry',
@@ -43,6 +46,10 @@ export class MenuComponent implements OnInit {
           }
       ]}
   ];
+}
+
+goDash() {
+  this.router.navigate(['/dashboard'])
 }
 
 }
