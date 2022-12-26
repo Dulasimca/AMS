@@ -31,8 +31,8 @@ export class ItLoginComponent implements OnInit {
       if (i.v_email === this.email && i.v_password === this.pw) {
         this.router.navigate(['/dashboard'])
       } else {
-        this.responseMsg = [{ severity: ResponseMessage.WarnSeverity, detail: 'Incorrect Username & Password !' }];
-    setTimeout(() => this.responseMsg = [], 2000)
+        this.responseMsg = [{ severity: ResponseMessage.WarnSeverity, detail: 'Incorrect UserNmae & Password !' }];
+        setTimeout(() => this.responseMsg = [], 2000)
       }
     })
   }
