@@ -10,9 +10,8 @@ import { RestAPIService } from 'src/app/restapi.service';
 export class ManageAssetEntryComponent implements OnInit {
   currentUser: any
   lastUser: any;
-  assetId: any;
-  product: any;
-  brandname: any;
+  productid: any;
+  brandid: any;
   selectedType: any;
   branddata: any[] = [];
   productdata: any[] = [];
@@ -21,16 +20,17 @@ export class ManageAssetEntryComponent implements OnInit {
   data: any[] = [];
   cols: any;
   brand: any;
-  managedata:any;
- 
+  managedata: any;
+  assetid:any;
+
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
-    
     this.onView();
     this.getData();
-this.cols = [
+  this.assetid=0;
+    this.cols = [
       { field: 'vproductname', header: 'Product', align: 'left !important' },
       { field: 'vbrandname', header: 'Brand', align: 'left !important' },
       { field: 'vcurrentuser', header: 'CurrentUser', align: 'left !important' },
@@ -59,21 +59,35 @@ this.cols = [
         console.log()
         this.productOptions.unshift({ label: 'Select Product', value: null });
         break;
- }
+    }
   }
- 
-  onSubmit() {
- const params = {
-      'assetid': 0,
-      'productid':this.product,
-      'brandid':this.brandname,
-      'currentuser':this.currentUser,
-      'lastuser':this.lastUser,
-}
-    this.restApiService.post(PathConstants.manageasset_Post, params).subscribe(res => { })
- }
 
-onView() {
+  onSubmit() {
+    if (this.assetid == 0) {
+    const params = {
+      'assetid':this.assetid,
+      'productid': this.productid,
+      'brandid': this.brandid,
+      'currentuser': this.currentUser,
+      'lastuser': this.lastUser
+    };
+    this.restApiService.post(PathConstants.manageasset_Post, params).subscribe(res => { })
+  }
+    else{
+      const params = {
+        'assetid':this.assetid,
+        'productid': this.productid,
+        'brandid': this.brandid,
+        'currentuser': this.currentUser,
+        'lastuser': this.lastUser
+      };
+      this.restApiService.post(PathConstants.updatemanageasset_Post, params).subscribe(res => { })
+    }
+
+  }
+
+
+  onView() {
     this.restApiService.get(PathConstants.brandmaster_Get).subscribe(res => {
       if (res) {
         this.branddata = res.Table;
@@ -82,18 +96,31 @@ onView() {
     this.restApiService.get(PathConstants.productmaster_Get).subscribe(res => {
       if (res) {
         this.productdata = res.Table;
-  }
+      }
     })
-    }
-
-  getData()
-  {
-    this.restApiService.get(PathConstants.manageasset_Get).subscribe(res => {
- this.data = res.Table;  
-  })
   }
 
-  onEdit(rowData:any){
+  getData() {
+    this.restApiService.get(PathConstants.manageasset_Get).subscribe(res => {
+      this.data = res.Table;
+    })
+  }
+
+  onEdit(rowData: any) {
+    this.assetid=rowData.vassetid;
+    this.productid =rowData.vproductid;
+    this.productOptions = [{ label: rowData.vproductname, value: rowData.vproductid }];
+    this.brandid=rowData.vbrandid;
+    this.brandOptions = [{ label: rowData.vbrandname, value: rowData.vbrandid }];
+    this.currentUser=rowData.vcurrentuser;
+    this.lastUser=rowData.vlastuser;
+  }
+
+  onClear(){
+    this.productid=0;
+    this.brandid=0;
+    this.currentUser=null;
+    this.lastUser=null;
 
   }
 
